@@ -1,0 +1,47 @@
+[user]
+	name = Marcos Klein
+	email = EMAIL ADDRESS
+[core]
+	editor = vim
+	#pager = less -r
+	#pager = less -+$LESS -Fr
+	pager = less -+$LESS -R
+[alias]
+	# Recent common ancestor where branches diverge.
+	diverges = !bash -c 'diff -u <(git rev-list --first-parent "${1}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
+	up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..    '
+	logd = log --decorate
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	ls = ls-files
+	st = status
+	sst = status -sb
+	kdiff3 = difftool -t kdiff3 -d
+	opendiff = !sh -c 'git diff --ext-diff /Users/mklein0/bin/git-opendiff.sh "$@"'
+	mergeff = merge --ff-only
+[color]
+	diff = auto
+	branch = auto
+	status = auto
+	interactive = auto
+	ui = true
+[push]
+	default = current
+[diff]
+	#external = /Users/mklein0/bin/git-opendiff.sh
+	#external = /Users/mklein0/bin/git-kdiff3.sh
+
+[difftool "kdiff3"]
+    path = /usr/local/bin/kdiff3
+    trustExitCode = false
+[difftool]
+    prompt = false
+[diff]
+#    tool = kdiff3
+[mergetool "kdiff3"]
+    path = /usr/local/bin/kdiff3
+    trustExitCode = false
+[mergetool]
+    keepBackup = false
+[merge]
+#    tool = kdiff3

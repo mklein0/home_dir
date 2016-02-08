@@ -1,0 +1,77 @@
+" Terminal VIM initialisation file
+"
+" This file should be located in $VIM or $HOME.
+" 
+" The initialisation for GUI VIM are loaded after this file in $VIM/.gvimrc
+" or $HOME/.gvimrc.
+"
+
+" set backspace=1           " backspacing
+" set cmdheight=2           " command line height
+
+"set smartindent
+"set autoindent
+"set expandtab             " fill tabs with spaces
+"set tabstop=4             " number of space <tab> counts for
+
+"set cindent
+"set shiftwidth=2
+"set cinkeys=0{,0},:,0#,!,!^F
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+set modeline
+set modelines=5
+
+set showmatch             " show matching brackets
+set showmode              " show mode at bottom of screen
+set hlsearch              " Highlight search keywords
+set nocompatible          " Disable vi-backwards compatibility mode
+
+set spelllang=en_us       " Spellchecker to use english
+
+colorscheme mkl
+"colorscheme blackboard
+syntax on                 " Enable syntax color coding
+
+" Enable filetype plugins
+"filetype plugin on
+"filetype indent on
+
+" Set to auto read when a file is changed from the outside
+"set autoread
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+
+"Always show current position
+set ruler
+
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType sh set ts=2 sts=2 ai
+autocmd FileType perl set ts=4 et sts=4 ai
+autocmd FileType python set ts=4 et sts=4 ai
+autocmd FileType rst set ts=4 et sts=4
+autocmd FileType html set ts=2 sts=2 ai
+autocmd FileType mako set ts=2 sts=2 ai
+autocmd FileType c set ts=2 sts=2 ai
+autocmd FileType xhtml set ts=2 sts=2 ai
+autocmd FileType xml set ts=2 sts=2 ai
+autocmd FileType ant set ts=2 sts=2 ai
+autocmd FileType javascript set ts=2 sts=2 ai
+autocmd FileType go set ts=2 sts=2 ai
+
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" <CR>
+
+set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
+"autocmd BufEnter * let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
+"let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
+"if &term == "screen"
+"  set t_ts=k
+"  set t_fs=\
+"endif
+"if &term == "screen" || &term == "xterm"
+"  set title
+"endif
