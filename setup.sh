@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 pushd $(dirname ${BASH_SOURCE[0]}) 1>/dev/null
 repo_dir=$(pwd)

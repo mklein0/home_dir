@@ -1,6 +1,6 @@
-#!/bin/false
+#!/usr/bin/false
 
-# List of paths to add.
+# List of paths to add in lowest to highest priority.
 #  ex. _paths=(dir0 dir1 ... dirn)
 declare -a _paths
 _paths=(/opt/android-sdk-linux_x86-1.0_r2/tools ${HOME}/bin)

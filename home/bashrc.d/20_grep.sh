@@ -1,4 +1,4 @@
-#!false
+#!/usr/bin/false
 
 # enable color support of grep
 if [ -x /usr/bin/dircolors ]; then

@@ -1,3 +1,4 @@
+#!/usr/bin/false
 
 VAGRANT_DIR=${REPO_BASE_DIR}git/vagrant/vagrant
 

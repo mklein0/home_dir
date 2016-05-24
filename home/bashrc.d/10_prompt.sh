@@ -1,4 +1,4 @@
-#!false
+#!/usr/bin/false
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
@@ -35,10 +35,10 @@ else
 fi
 unset color_prompt force_color_prompt
 
-# If this is an xterm set the title
+# If this is an xterm set the window title
 case "$TERM" in
 	xterm*|rxvt*)
-		# Update console title each prompt
+		# Update console title each prompt with virtualenv
 		_title='\[\e]0;${VIRTUAL_ENV:+($(basename ${VIRTUAL_ENV}))}${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]'
 		PS1="$_title$PS1"
 		unset _title

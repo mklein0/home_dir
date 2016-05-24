@@ -1,6 +1,5 @@
 #!/bin/false
 
-
 if [[ "`uname`" == "Darwin" || $TERM == "xterm" ]]; then
 
 function xtitle() {

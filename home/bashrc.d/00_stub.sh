@@ -1,4 +1,4 @@
-#!/bin/false
+#!/usr/bin/false
 
 # Number Space
 #
@@ -8,10 +8,9 @@
 # 30 - System Package configuration
 # 40 - Custom Package installation
 # 50 - Custom Package configuration
-# 60 - Final Configuration
-# 70 - Process Restarts
-# 80 - Runtime Configurations
-# 90 - Extra
+# 70 - Final Configuration
+# 80 - Process Restarts
+# 90 - Runtime Configurations
 
 
 # Loop through all shell setup scripts in this directory.  Skip stub script.

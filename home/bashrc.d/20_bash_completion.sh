@@ -1,4 +1,4 @@
-#!/bin/false
+#!/usr/bin/false
 
 # If Mac, check for brew
 type brew 1>/dev/null 2>/dev/null
