@@ -1,9 +1,9 @@
 #!/usr/bin/false
 
 REPOS_HOME=${HOME}/Repositories/
-GIT_REPOS_HOME=${REPOS_HOME}/git/
-HG_REPOS_HOME=${REPOS_HOME}/hg/
-SVN_REPOS_HOME=${REPOS_HOME}/svn/
+GIT_REPOS_HOME=${REPOS_HOME}git/
+HG_REPOS_HOME=${REPOS_HOME}hg/
+SVN_REPOS_HOME=${REPOS_HOME}svn/
 
 function repo() {
 	if [ -z "${PUSHD}" ]; then

@@ -1,6 +1,6 @@
 #!/usr/bin/false
 
-VAGRANT_DIR=${REPO_BASE_DIR}git/vagrant/vagrant
+VAGRANT_DIR=${GIT_REPOS_HOME}vagrant
 
 function _vchk() {
 	vagrant status $1 2>&1  | \
