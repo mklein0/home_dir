@@ -25,5 +25,7 @@ fi
 [ -z "${LESSCOLORIZER}" ] && export LESSCOLORIZER="pygmentize -P encoding=utf8"
 
 if [ -x /usr/local/bin/less ]; then
-	alias less=/usr/local/bin/less
+	alias less='xtitle_execcmd /usr/local/bin/less'
+else
+	alias less='xtitle_execcmd less'
 fi
