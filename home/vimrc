@@ -30,6 +30,7 @@ set hlsearch              " Highlight search keywords
 set nocompatible          " Disable vi-backwards compatibility mode
 
 set spelllang=en_us       " Spellchecker to use english
+set title                 " Enable vim setting of terminal title bar
 
 colorscheme mkl
 "colorscheme blackboard
@@ -52,7 +53,7 @@ set ruler
 autocmd FileType sh set ts=2 sts=2 ai
 autocmd FileType perl set ts=4 et sts=4 ai
 autocmd FileType python set ts=4 et sts=4 ai
-autocmd FileType rst set ts=4 et sts=4
+autocmd FileType rst set ts=4 et sts=4 iskeyword=38,42,43,45,48-57,60-62,64-90,97-122,_ 
 autocmd FileType html set ts=2 sts=2 ai
 autocmd FileType mako set ts=2 sts=2 ai
 autocmd FileType c set ts=2 sts=2 ai
@@ -63,15 +64,17 @@ autocmd FileType javascript set ts=2 sts=2 ai
 autocmd FileType go set ts=2 sts=2 ai
 
 
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" <CR>
+" This does what?
+"map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" <CR>
 
-set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
-"autocmd BufEnter * let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
-"let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
-"if &term == "screen"
-"  set t_ts=k
-"  set t_fs=\
-"endif
-"if &term == "screen" || &term == "xterm"
-"  set title
-"endif
+"set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
+autocmd BufEnter * let &titlestring = hostname() . ": vim(" . expand("%:t") . ")"
+let &titlestring = hostname() . ": vim(" . expand("%:t") . ")"
+if &term == "screen"
+  set t_ts=k
+  set t_fs=\
+endif
+if &term == "screen" || &term == "xterm"
+  set title
+endif
+

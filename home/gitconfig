@@ -32,16 +32,17 @@
 	#external = /Users/mklein0/bin/git-kdiff3.sh
 
 [difftool "kdiff3"]
-    path = /usr/local/bin/kdiff3
-    trustExitCode = false
+	path = kdiff3
+	trustExitCode = false
 [difftool]
-    prompt = false
+	prompt = false
 [diff]
-#    tool = kdiff3
+#	tool = kdiff3
 [mergetool "kdiff3"]
-    path = /usr/local/bin/kdiff3
-    trustExitCode = false
+	path = kdiff3
+	trustExitCode = false
 [mergetool]
-    keepBackup = false
+	keepBackup = false
 [merge]
-#    tool = kdiff3
+#	tool = kdiff3
+	conflictstyle = diff3
