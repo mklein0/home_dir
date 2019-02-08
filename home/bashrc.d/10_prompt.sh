@@ -35,11 +35,32 @@ else
 fi
 unset color_prompt force_color_prompt
 
+__venv_ps1 () {
+	local exitcode=$?
+	local printf_format=' (%s)'
+
+	case "$#" in
+		0|1)  printf_format="${1:-$printf_format}"
+		;;
+		*)  return $exitcode
+		;;
+	esac
+
+	if [ -z "${VIRTUAL_ENV}" ]; then
+		return $exitcode
+	fi
+
+	local venvstring=$(basename ${VIRTUAL_ENV})
+
+	printf -- "$printf_format" "$venvstring"
+	return $exitcode
+}
+
 # If this is an xterm set the window title
 case "$TERM" in
 	xterm*|rxvt*)
 		# Update console title each prompt with virtualenv
-		_title='\[\e]0;${VIRTUAL_ENV:+($(basename ${VIRTUAL_ENV}))}${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]'
+		_title='\[\e]0;$(declare -F __venv_ps1 &> /dev/null && __venv_ps1 "(venv: %s) ")$(declare -F __git_ps1 &>/dev/null && __git_ps1 "(git: %s) ")${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]'
 		PS1="$_title$PS1"
 		unset _title
 		;;
