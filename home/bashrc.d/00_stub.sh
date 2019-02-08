@@ -14,7 +14,7 @@
 
 
 # Loop through all shell setup scripts in this directory.  Skip stub script.
-for f in $(command ls -1 `dirname ${BASH_SOURCE[0]}`/*.sh |
+for f in $(command ls -1 $(dirname ${BASH_SOURCE[0]})/*.sh |
     command grep -ve "${BASH_SOURCE[0]}"
 ); do
     . $f
