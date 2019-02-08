@@ -25,3 +25,9 @@ elif [ ! -r /etc/bash_completion ]; then
 		. ${BASH_COMPLETION}
 	fi
 fi
+
+
+if type kubectl 1>/dev/null 2>/dev/null; then
+	# https://kubernetes.io/docs/tasks/tools/install-kubectl/#on-linux-using-bash
+	source <(kubectl completion bash)
+fi
